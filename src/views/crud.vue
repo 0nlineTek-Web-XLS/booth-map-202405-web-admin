@@ -217,7 +217,7 @@ const baseRules = {
             </el-form-item>
             <el-form-item label="显示信息">
                 <el-select v-model="boothChanged.show" :placeholder="showDict[booth.show]">
-                    <el-option label="人数" value="count" />
+                    <el-option label="展台人数" value="count" />
                     <el-option label="等待时间" value="minutes" />
                 </el-select>
             </el-form-item>
