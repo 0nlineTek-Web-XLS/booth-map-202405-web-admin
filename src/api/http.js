@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const instance = axios.create({
-  baseURL: "/api",
+  baseURL: "",
 });
 
 // // 添加请求拦截器

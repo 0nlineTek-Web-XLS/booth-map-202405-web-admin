@@ -4,10 +4,10 @@ import { ref, watch, computed } from "vue";
 import { boothDataGet, boothDataPost } from "@/api/http";
 
 //使用websocket
-const { status, data, send, open, close } = useWebSocket(
-  "wss://api.booth-map-202405.0nline.tech/ws",
-  { autoReconnect: true, heartbeat: true },
-);
+const { status, data, send, open, close } = useWebSocket("/ws", {
+  autoReconnect: true,
+  heartbeat: false,
+});
 
 const getBoothData = async () => {
   rareData.value = await boothDataGet();

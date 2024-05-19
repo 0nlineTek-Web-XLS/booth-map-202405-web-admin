@@ -20,7 +20,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://api.booth-map-202405.0nline.tech",
+        target: "http://localhost:8000",
         changeOrigin: true,
         ws: true,
         rewrite: path => path.replace(/^\/api/, ""),
