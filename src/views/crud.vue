@@ -205,22 +205,22 @@ const baseRules = {
 <template>
   <div>
     <el-table :data="tableData" style="width: 100%" @row-click="handleRowClick">
-      <el-table-column prop="id" label="展台编号" width="120" />
-      <el-table-column prop="name" label="展台名称" width="120" />
-      <el-table-column prop="show" label="显示信息" width="120" />
-      <el-table-column prop="count" label="展台人数" width="120" />
-      <el-table-column prop="minutes" label="等待时间" width="120" />
-      <el-table-column prop="card-info" label="卡片简介" />
-      <el-table-column prop="card-cover" label="卡片封面地址" />
-      <el-table-column prop="position-x" label="展台位置 x坐标" width="120" />
-      <el-table-column prop="position-y" label="展台位置 y坐标" width="120" />
+      <el-table-column prop="id" label="编号" width="60" />
+      <el-table-column prop="name" label="展台名称" width="100" />
+      <el-table-column prop="show" label="显示信息" width="100" />
+      <el-table-column prop="count" label="人数" width="100" />
+      <el-table-column prop="minutes" label="等待时间" width="100" />
+      <!-- <el-table-column prop="card-info" label="卡片简介" /> -->
+      <!-- <el-table-column prop="card-cover" label="卡片封面地址" /> -->
+      <!-- <el-table-column prop="position-x" label="展台位置 x坐标" width="120" /> -->
+      <!-- <el-table-column prop="position-y" label="展台位置 y坐标" width="120" /> -->
     </el-table>
   </div>
 
   <el-dialog
     v-model="selectInfo.iSelect"
     :title="'展台 ' + booth.id"
-    width="500"
+    width="300"
     :before-close="handleDialogClose"
   >
     <el-form
@@ -230,7 +230,11 @@ const baseRules = {
       :rules="baseRules"
     >
       <el-form-item label="展台名称">
-        <el-input v-model="boothChanged.name" :placeholder="booth.name" />
+        <el-input
+          disabled
+          v-model="boothChanged.name"
+          :placeholder="booth.name"
+        />
       </el-form-item>
       <el-form-item label="显示信息">
         <el-select
@@ -255,24 +259,28 @@ const baseRules = {
       </el-form-item>
       <el-form-item label="卡片简介">
         <el-input
+          disabled
           v-model="boothChanged.card.info"
           :placeholder="booth.card.info"
         />
       </el-form-item>
       <el-form-item label="卡片封面地址">
         <el-input
+          disabled
           v-model="boothChanged.card.cover"
           :placeholder="booth.card.cover"
         />
       </el-form-item>
       <el-form-item label="展台位置 x坐标">
         <el-input
+          disabled
           v-model="boothChanged.position.x"
           :placeholder="booth.position.x.toString()"
         />
       </el-form-item>
       <el-form-item label="展台位置 y坐标">
         <el-input
+          disabled
           v-model="boothChanged.position.y"
           :placeholder="booth.position.y.toString()"
         />

@@ -30,7 +30,7 @@ const login = async () => {
         />
       </el-form-item>
       <el-form-item>
-        <el-button @click="login" type="primary" style="width: 240px">
+        <el-button @click.prevent="login" type="primary" style="width: 240px">
           登录
         </el-button>
       </el-form-item>

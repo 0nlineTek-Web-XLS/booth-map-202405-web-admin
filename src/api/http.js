@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const instance = axios.create({
-  baseURL: "",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 // // 添加请求拦截器
@@ -50,12 +50,12 @@ async function passwordLogin(password) {
 function boothDataPost(boothPost) {
   instance
     .post("/data", boothPost, { withCredentials: true })
-    .then(function(response) {
+    .then(function (response) {
       if (response.status == 200) {
         alert("修改成功！");
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }
