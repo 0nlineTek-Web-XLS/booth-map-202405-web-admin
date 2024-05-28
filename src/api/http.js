@@ -49,13 +49,17 @@ async function passwordLogin(password) {
 
 function boothDataPost(boothPost) {
   instance
-    .post("/data", boothPost, { withCredentials: true })
-    .then(function (response) {
+    .post("/data", boothPost, {
+      headers: {
+        Authorization: Cookies.get("token"),
+      },
+    })
+    .then(function(response) {
       if (response.status == 200) {
         alert("修改成功！");
       }
     })
-    .catch(function (error) {
+    .catch(function(error) {
       console.log(error);
     });
 }

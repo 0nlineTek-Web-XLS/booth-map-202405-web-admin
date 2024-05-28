@@ -2,12 +2,16 @@
 import { useWebSocket } from "@vueuse/core";
 import { ref, watch, computed } from "vue";
 import { boothDataGet, boothDataPost } from "@/api/http";
+import { resolveWsUrl } from "@/utils";
 
 //使用websocket
-const { status, data, send, open, close } = useWebSocket("/ws", {
-  autoReconnect: true,
-  heartbeat: false,
-});
+const { status, data, send, open, close } = useWebSocket(
+  resolveWsUrl(import.meta.env.VITE_WS_URL ?? "/ws"),
+  {
+    autoReconnect: true,
+    heartbeat: false,
+  },
+);
 
 const getBoothData = async () => {
   rareData.value = await boothDataGet();
